@@ -102,7 +102,7 @@ end
 
 insert CUSTOMER
 (maKH,hoten,email,sdt,diachi)
-values('KH006',N'Lê Thị Trang','123trang@gmail.com','0987876577',N'Liên Chiểu')
+values('KH006','Lê Thị Trang','123trang@gmail.com','0987876577','Liên Chiểu')
 
 select * from CUSTOMER
 go
@@ -112,7 +112,7 @@ CREATE EVENT customer1
 ON SCHEDULE AT CURRENT_TIMESTAMP
 DO
   INSERT INTO CUSTOMER(maKH,hoten,email,sdt,diachi)
-  VALUES('KH007',N'Lê Văn C','1234c@gmail.com','1234567123',N'Ninh Bình');
+  VALUES('KH007','Lê Văn C','1234c@gmail.com','1234567123','Ninh Bình');
   
   
   -- tạo trigger xóa 1 bản ghi trong bảng order_details thì hiển thị tổng số bản ghi còn lại trong bảng order_details--
@@ -133,7 +133,7 @@ CREATE EVENT CUS1
 ON SCHEDULE AT CURRENT_TIMESTAMP
 DO
   INSERT INTO CUSTOMER(maKH,hoten,email,sdt,diachi)
-  VALUES('KH006',N'Nguyễn Văn B','nguyenvanb@gmail.com','1234567123',N'Quảng Trị');
+  VALUES('KH006','Nguyễn Văn B','nguyenvanb@gmail.com','1234567123','Quảng Trị');
   
   
   
