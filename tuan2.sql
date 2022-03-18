@@ -161,3 +161,32 @@ ON SCHEDULE AT CURRENT_TIMESTAMP
 DO
   INSERT INTO CUSTOMER(maKH,hoten,email,sdt,diachi)
   VALUES('KH006',N'Phạm Anh','phamanhhoian@gmail.com','12321312',N'Hội An')
+  
+  
+-- Tạo trigger không cho phép cập nhập thông tin giá sản phẩm bằng 0 trong bảng product
+
+create trigger Trigger_afterupdate1 on PRODUCT
+for update
+as 
+begin
+Declare @count  int = 0
+select @count = COUNT(*) from inserted
+where inserted.giaSP = 0
+ if (@count>0)
+	Begin
+		Print N'Không được cập nhập giá sản phẩm bằng 0'
+		ROLLBACK TRAN
+	End
+end
+Delete dbo.ORDER_DETAILS where maCTSP = 'CTSP009'
+
+update PRODUCT set giaSP = 10000
+where maSP = 'SP005'
+
+
+-- Event
+CREATE EVENT event1
+    ON SCHEDULE AT CURRENT_TIMESTAMP
+    DO
+      insert into PAYMENT values ('TT003', N'Visa', 10000
+);
